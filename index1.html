@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Attendance & Task Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app">
+      <header class="topbar">
+        <h1>Attendance & Task Tracker</h1>
+        <div id="userBadge" class="hidden"></div>
+      </header>
+
+      <section id="authView" class="center">
+        <div class="card authCard">
+          <h2>Sign in</h2>
+          <input id="email" type="email" placeholder="Email" />
+          <input id="password" type="password" placeholder="Password" />
+          <div class="row">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn" class="muted">Register</button>
+          </div>
+          <div id="authMsg" class="muted small"></div>
+        </div>
+      </section>
+
+      <section id="employeeView" class="hidden">
+        <div class="grid">
+          <div class="card">
+            <h2>My Attendance</h2>
+            <div class="row">
+              <button id="checkInBtn">Check In</button>
+              <button id="checkOutBtn">Check Out</button>
+            </div>
+            <div id="attStatus" class="muted small"></div>
+          </div>
+
+          <div class="card">
+            <h2>Tasks</h2>
+            <select id="taskSelect">
+              <option value="">-- Select task --</option>
+            </select>
+            <div class="row">
+              <button id="startTaskBtn">Start</button>
+              <button id="stopTaskBtn">Stop</button>
+            </div>
+            <h3>Task Log</h3>
+            <div class="tableWrap">
+              <table id="taskLog">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Min</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card full">
+            <div class="row space">
+              <div></div>
+              <div>
+                <button id="empLogoutBtn" class="danger">Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="adminView" class="hidden">
+        <div class="grid">
+          <div class="card">
+            <h2>Create Task</h2>
+            <input id="newTaskTitle" placeholder="Title" />
+            <textarea id="newTaskDesc" placeholder="Description"></textarea>
+            <button id="createTaskBtn">Create</button>
+          </div>
+
+          <div class="card">
+            <h2>Assign Task</h2>
+            <select id="assignTaskSelect">
+              <option value="">-- Select --</option>
+            </select>
+            <input id="assignEmail" placeholder="Employee email" />
+            <button id="assignBtn">Assign</button>
+          </div>
+
+          <div class="card">
+            <h2>Attendance</h2>
+            <div class="tableWrap">
+              <table id="attendanceTable">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Hours</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="row">
+              <label
+                >Auto checkout hours<input
+                  id="autoHours"
+                  type="number"
+                  min="1"
+                  value="9"
+              /></label>
+              <button id="saveAutoBtn">Save</button>
+            </div>
+          </div>
+
+          <div class="card full">
+            <div class="row space">
+              <div></div>
+              <div>
+                <button id="adminLogoutBtn" class="danger">Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
